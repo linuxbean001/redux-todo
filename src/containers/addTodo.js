@@ -6,17 +6,15 @@ import {addTodoAction} from '../actions/todoAction';
 class AddTodo extends Component{
 onSubmit(event){
   event.preventDefault();
-  if(this.todotitle.value=="") {
+  if(this.todotitle.value==="") {
     return;
   }
   const newTodo={
     id: uuid.v4(),
     title: this.todotitle.value
   };
-//  console.log(newTodo);
   this.props.setTodo(newTodo);
   this.todotitle.value='';
-
 }
   render(){
     return(

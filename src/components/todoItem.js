@@ -16,7 +16,7 @@ class TodoItem extends Component {
   }
   onSubmitEdit(event){
     event.preventDefault();
-    if(this.todotitle.value=="") {
+    if(this.todotitle.value==="") {
       return;
     }
     const editedTodo={
@@ -45,7 +45,6 @@ class TodoItem extends Component {
         (
           <form className="form-inline  edittodoform" ref='edittodo' onSubmit={this.onSubmitEdit.bind(this)}>
             <div className="form-group list-group-item d-flex justify-content-between align-items-center">
-
             <input className="form-control" type="text" ref={ todotitle => this.todotitle = todotitle } defaultValue={this.props.todo.title} placeholder="Enter Todo"/>
             <input type="hidden" ref="todoid" defaultValue={this.props.todo.id}/>
             <span className="editbuttonsbox">
@@ -54,7 +53,6 @@ class TodoItem extends Component {
             </span>
             </div>
           </form>
-
         )
         :
         (
@@ -71,9 +69,7 @@ class TodoItem extends Component {
         )
       }
       </div>
-
     );
   }
-
 }
 export default TodoItem;

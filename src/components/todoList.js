@@ -17,7 +17,6 @@ class  TodoList extends Component {
       this.props.editTodo(todo);
   }
   onComplete(todo){
-    console.log(todo);
     this.props.editTodo(todo);
   }
   onFilter(filter){
@@ -26,11 +25,9 @@ class  TodoList extends Component {
     this.setState(state);
   }
   render(){
-    {if(!this.props.todos) return 'No List';
-    }
+    if(!this.props.todos) return 'No List';
     return(
       <div className="todolistbox">
-
       <div className="btn-group btn-group-toggle" data-toggle="buttons">
         <label className="btn btn-info active">
           <input onClick={this.onFilter.bind(this,'all')} type="radio" name="options" id="option1" autoComplete="off" /> All
@@ -43,12 +40,10 @@ class  TodoList extends Component {
         </label>
       </div>
       <br/><br/>
-
       <div className="todoList">
       <ul className="list-group">
           {
             this.props.todos.todos.map(todo => {
-            //return <li key={todo.id}> {todo.title} </li>;
             return this.state.filter==="complete" && todo.isComplete ? <TodoItem key={todo.id} todo={todo} onDelete={this.onDelete.bind(this)}
             onEdit={this.onEdit.bind(this)} onComplete={this.onComplete.bind(this)}/> :
             this.state.filter==="active" && !todo.isComplete ? <TodoItem key={todo.id} todo={todo} onDelete={this.onDelete.bind(this)}
@@ -62,7 +57,6 @@ class  TodoList extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
